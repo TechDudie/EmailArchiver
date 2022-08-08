@@ -6,8 +6,8 @@ import email
 from email.header import decode_header
 import os
 data = open("credentials.txt").read().split()
-username = data[0]
-password = data[1]
+username = data[0].strip()
+password = data[1].strip()
 try:
     os.mkdir("emails")
 except:
