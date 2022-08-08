@@ -14,12 +14,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Create directories
+      run: |
+        mkdir src
+        mv main.py src
+
     - name: Package Application
       uses: JackMcKew/pyinstaller-action-windows@main
       with:
-        path: main.py
+        path: src
 
     - uses: actions/upload-artifact@v2
       with:
         name: EmailArchiver
-        path: dist/windows
+        path: src/dist/windows
